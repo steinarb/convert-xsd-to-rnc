@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>no.priv.bang.xml.schema</groupId>
+ <artifactId>run-msv</artifactId>
+ <version>0.0.1-SNAPSHOT</version>
+ <name>Run msv commandline</name>
+ <description>Run the Orache Multi Schema Validator from the command line</description>
+ <dependencies>
+  <dependency>
+   <groupId>net.java.dev.msv</groupId>
+   <artifactId>msv-rngconverter</artifactId>
+   <version>2013.6.1</version>
+   <type>pom</type>
+  </dependency>
+ </dependencies>
+ <build>
+  <plugins>
+   <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.4.0</version>
+    <configuration>
+     <mainClass>com.sun.msv.driver.textui.Driver</mainClass>
+     <systemProperties>
+      <systemProperty>
+       <key>user.language</key>
+       <value/>
+      </systemProperty>
+      <systemProperty>
+       <key>user.region</key>
+       <value/>
+      </systemProperty>
+     </systemProperties>
+    </configuration>
+   </plugin>
+  </plugins>
+ </build>
+</project>
