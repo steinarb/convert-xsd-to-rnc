@@ -22,6 +22,8 @@
     <configuration>
      <mainClass>com.sun.msv.driver.textui.Driver</mainClass>
      <systemProperties>
+      <!-- The locale settings have to be set to "no location" to make the MSV run -->
+      <!-- (The code is localized to two locations "default locale" or chinese, the default locale values are English) -->
       <systemProperty>
        <key>user.language</key>
        <value/>
