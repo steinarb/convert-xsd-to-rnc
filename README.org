@@ -1,0 +1,9 @@
+* Run the Multi Schema Validator
+
+This project contains a maven POM file to download the [[https://github.com/kohsuke/msv][Multi Schema Validator]] from maven central and run it, using the [[http://www.mojohaus.org/exec-maven-plugin/java-mojo.html][exec-maven-plugin exec:java goal]].
+
+Usage examples:
+ 1. Parse a W3C XML Schema (XSD) file
+    #+BEGIN_EXAMPLE
+      mvn exec:java -Dexec.arguments="xhtml1-strict.xsd"
+    #+END_EXAMPLE
