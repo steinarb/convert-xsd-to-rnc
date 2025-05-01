@@ -20,7 +20,7 @@
     <artifactId>exec-maven-plugin</artifactId>
     <version>1.4.0</version>
     <configuration>
-     <mainClass>com.sun.msv.driver.textui.Driver</mainClass>
+     <mainClass>com.sun.msv.writer.relaxng.Driver</mainClass>
      <systemProperties>
       <!-- The locale settings have to be set to "no location" to make the MSV run -->
       <!-- (The code is localized to two locations "default locale" or chinese, the default locale values are English) -->
