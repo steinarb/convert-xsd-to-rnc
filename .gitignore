@@ -1,4 +1,5 @@
 *.rnc
+*.rng
 *.xsd
 /.classpath
 /.project
