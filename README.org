@@ -16,13 +16,13 @@ Usage examples:
  2. Download an XSD file to convert
     #+begin_example
       cd ~/git/run-msv/
-      wget https://raw.githubusercontent.com/liquibase/liquibase4/refs/heads/master/liquibase-common/src/main/resources/liquibase/parser/core/xml/dbchangelog-3.5.xsd
+      wget https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd
     #+end_example
  3. Parse a W3C XML Schema (XSD) file
     #+BEGIN_EXAMPLE
-      mvn exec:java -Dexec.arguments="dbchangelog-3.5.xsd dbchangelog-3.5.rng"
+      mvn exec:java -Dexec.arguments="dbchangelog-4.31.xsd dbchangelog-4.31.rng"
     #+END_EXAMPLE
  4. The MSV creates a Relax-NG schema in XML notation, and to convert that to Relax-NG compact notation, use trang
     #+begin_example
-      trang dbchangelog-3.5.rng dbchangelog-3.5.rnc
+      trang dbchangelog-3.5.rng dbchangelog-4.31.rnc
     #+end_example
