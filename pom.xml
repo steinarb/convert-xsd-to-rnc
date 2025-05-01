@@ -9,7 +9,7 @@
   <dependency>
    <groupId>net.java.dev.msv</groupId>
    <artifactId>msv-rngconverter</artifactId>
-   <version>2022.8-SNAPSHOT</version>
+   <version>2022.7</version>
   </dependency>
  </dependencies>
  <build>
