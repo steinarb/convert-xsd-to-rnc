@@ -14,6 +14,11 @@
    <artifactId>msv-rngconverter</artifactId>
    <version>2022.7</version>
   </dependency>
+  <dependency>
+   <groupId>org.relaxng</groupId>
+   <artifactId>trang</artifactId>
+   <version>20241231</version>
+  </dependency>
  </dependencies>
  <build>
   <plugins>
@@ -36,6 +41,21 @@
         ${project.basedir}/${xsd-file}.xsd
         ${project.build.directory}/${xsd-file}.rng
        </commandlineArgs>
+      </configuration>
+     </execution>
+     <execution>
+      <id>convert-liquibase-rng-to-rnc</id>
+      <phase>install</phase>
+      <goals>
+       <goal>java</goal>
+      </goals>
+      <configuration>
+       <mainClass>com.thaiopensource.relaxng.translate.Driver</mainClass>
+       <blockSystemExit>true</blockSystemExit>
+       <arguments>
+        <argument>${project.build.directory}/${xsd-file}.rng</argument>
+        <argument>${project.build.directory}/${xsd-file}.rnc</argument>
+       </arguments>
       </configuration>
      </execution>
     </executions>
