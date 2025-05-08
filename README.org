@@ -1,28 +1,14 @@
-* Run the Multi Schema Validator
+* blockSystemExit not blocking exit test case
 
-This project contains a maven POM file that will download the RNG writer of the [[https://github.com/kohsuke/msv][Multi Schema Validator]] from maven central and run it, using the [[http://www.mojohaus.org/exec-maven-plugin/java-mojo.html][exec-maven-plugin exec:java goal]], to convert an XSD schema to a Relax-NG schema.
-
-After all these years the Multi Schema Validator is still the only piece of software that can read an XSD schema and produce a Relax-NG schema ([[https://relaxng.org/jclark/trang.html][trang]] can read a Relax-NG schema and produce an XSD schema, but not the other way around).
-
-The [[https://mvnrepository.com/artifact/net.java.dev.msv/msv-rngconverter/2013.6.1][2013.6.1 release of MSV]] was long the most recent version, but [[https://github.com/xmlark/msv][someone picked up the MSV and applied lots of fixes back in 2022]] and made a release of [[https://mvnrepository.com/artifact/net.java.dev.msv/msv-rngconverter/2022.7][version 2022.7 of msv in July 2022]].
-
-Usage examples:
- 1. Clone this project:
+Usage:
+ 1. Clone this project
     #+begin_example
       mkdir -p ~/git
-      cd ~/git
-      git clone https://github.com/steinarb/run-msv.git
+      cd ~/git/
+      git clone https://github.com/steinarb/convert-xsd-to-rnc.git
     #+end_example
- 2. Download an XSD file to convert
+ 2. Build with
     #+begin_example
-      cd ~/git/run-msv/
-      wget https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd
-    #+end_example
- 3. Parse a W3C XML Schema (XSD) file
-    #+BEGIN_EXAMPLE
-      mvn exec:java -Dexec.arguments="dbchangelog-4.31.xsd dbchangelog-4.31.rng"
-    #+END_EXAMPLE
- 4. The MSV creates a Relax-NG schema in XML notation, and to convert that to Relax-NG compact notation, use trang
-    #+begin_example
-      trang dbchangelog-3.5.rng dbchangelog-4.31.rnc
+      cd convert-xsd-to-rnc/
+      mvn install
     #+end_example
