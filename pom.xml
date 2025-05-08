@@ -1,10 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
  <modelVersion>4.0.0</modelVersion>
  <groupId>no.priv.bang.xml.schema</groupId>
- <artifactId>run-msv</artifactId>
+ <artifactId>convert-xsd-to-rnc</artifactId>
  <version>0.0.1-SNAPSHOT</version>
- <name>Run msv commandline</name>
- <description>Run the Orache Multi Schema Validator from the command line</description>
+ <name>xsd to rnc converter</name>
+ <description>Use Orache Multi Schema Validator to convert XSD to RNG</description>
+ <properties>
+  <xsd-file>dbchangelog-4.31</xsd-file>
+ </properties>
  <dependencies>
   <dependency>
    <groupId>net.java.dev.msv</groupId>
@@ -17,10 +20,25 @@
    <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>exec-maven-plugin</artifactId>
-    <version>1.4.0</version>
+    <version>3.5.0</version>
     <configuration>
-     <mainClass>com.sun.msv.writer.relaxng.Driver</mainClass>
     </configuration>
+    <executions>
+     <execution>
+      <id>convert-xsd-to-rng</id>
+      <phase>install</phase>
+      <goals>
+       <goal>java</goal>
+      </goals>
+      <configuration>
+       <mainClass>com.sun.msv.writer.relaxng.Driver</mainClass>
+       <commandlineArgs>
+        ${project.basedir}/${xsd-file}.xsd
+        ${project.build.directory}/${xsd-file}.rng
+       </commandlineArgs>
+      </configuration>
+     </execution>
+    </executions>
    </plugin>
   </plugins>
  </build>
